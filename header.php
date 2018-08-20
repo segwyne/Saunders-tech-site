@@ -21,19 +21,3 @@
     </ul>
 </nav>
 <!-- End responsive menu bar -->
-
-<p>We have been busy building other sites and haven't had much time to build our own here.</p>
-<p>You can reach us at 
-<script type="text/javascript">
-    document.write("<a href=\"mail" + "to:" + new Array("btechie","gmail.com").join("@") + "\">" + new Array("btechie","gmail.com").join("@") + "</" + "a>")  // This is Ben's addition to prevent email address harvesting 
-</script>
-</p>
-<h2>Services we offer include:</h2>
-<ul>
-    <li>Small network security</li>
-    <li>Website design</li>
-    <li>Small network administration</li>
-    <li>Custom computer building</li> 
-</ul>
-</body>
-</html>

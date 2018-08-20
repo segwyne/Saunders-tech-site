@@ -1,3 +1,4 @@
+<!-- <?php include('header.php') ?> -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,19 +22,30 @@
     </ul>
 </nav>
 <!-- End responsive menu bar -->
+<div>
+<button type="button" onclick="rolling()">Make the box roll</button>
+<button type="button" onclick="sliding()">Make the box slide</button>
+<button type="button" onclick="stop()">Stop animations</button>
+</div>
 
-<p>We have been busy building other sites and haven't had much time to build our own here.</p>
-<p>You can reach us at 
-<script type="text/javascript">
-    document.write("<a href=\"mail" + "to:" + new Array("btechie","gmail.com").join("@") + "\">" + new Array("btechie","gmail.com").join("@") + "</" + "a>")  // This is Ben's addition to prevent email address harvesting 
+<div id="box" class="">
+Box
+</div> <!-- box -->
+<script>
+function rolling() {
+    document.getElementById('box').className = 'roll';
+}
 </script>
-</p>
-<h2>Services we offer include:</h2>
-<ul>
-    <li>Small network security</li>
-    <li>Website design</li>
-    <li>Small network administration</li>
-    <li>Custom computer building</li> 
-</ul>
+<script>
+function sliding() {
+    document.getElementById('box').className = 'box';
+}
+</script>
+<script>
+function stop() {
+    document.getElementById('box').className = "";
+}
+</script>
+
 </body>
 </html>

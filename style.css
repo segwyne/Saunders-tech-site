@@ -36,6 +36,16 @@ Tags: Responsive, Mobile first
 */
 
 /*--------------------------------------------------------------
+  _____     __           
+ / ___/__  / /__  _______
+/ /__/ _ \/ / _ \/ __(_-<
+\___/\___/_/\___/_/ /___/
+                         
+    1.0 Colors
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
    ___              
   / _ )___ ____ ___ 
  / _  / _ `(_-</ -_)
@@ -87,17 +97,21 @@ nav {
     background-color: #333;
 }
 /* Uses flexbox to arrange the single-level main menu */
-nav ul {
+#mainmenu {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-nav ul li {
+#mainmenu li {
     margin: auto;
+}
+#mainmenu li a {
+    color: white;
 }
 /*--------------------------------------------------------------
     3.3 Splash Page
 --------------------------------------------------------------*/
+
 /*--------------------------------------------------------------
     3.4 Content
 --------------------------------------------------------------*/
@@ -105,9 +119,11 @@ nav ul li {
 /*--------------------------------------------------------------
     3.5 Pages
 --------------------------------------------------------------*/
+
 /*--------------------------------------------------------------
     3.6 Sidebars
 --------------------------------------------------------------*/
+
 /*--------------------------------------------------------------
     3.7 Footer
 --------------------------------------------------------------*/
@@ -123,12 +139,45 @@ nav ul li {
 /*--------------------------------------------------------------
     4.1 Tables
 --------------------------------------------------------------*/
+
 /*--------------------------------------------------------------
-    4.2 Links
+    4.2 Animations
 --------------------------------------------------------------*/
+@keyframes rolling {
+    0% {transform: rotate(0deg); left: 100px;}
+    50% {transform: rotate(720deg); left: calc(100% - 250px);}
+    100% {transform: rotate(0deg); left: 100px;}
+}
+#box {
+    display: block;
+    width: 100px;
+    height: 100px;
+    font-size: 20px;
+    line-height: 100px;
+    margin-top: 30px;
+    position: relative;
+    background-color: dodgerblue;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+.roll {
+    animation-name: rolling;
+}
+@keyframes box{
+    0%   {left: 50px; top: 0;}
+    25%  {left: calc(100% - 200px); top: 0;}
+    50%  {left: calc(100% - 200px); top: 500px;}
+    75%  {left: 50px; top: 500px;}
+    100% {left: 50px; top: 0;}
+}
+.box {
+    animation-name: box;
+}
+    
 /*--------------------------------------------------------------
     4.3 Forms
 --------------------------------------------------------------*/
+
 /*--------------------------------------------------------------
     4.4 Lists
 --------------------------------------------------------------*/
@@ -148,12 +197,21 @@ nav ul li {
 /* Removes underlines from menus list items */
 .menu li a{
     text-decoration: none;
+    color: black;
     }
 
 /*--------------------------------------------------------------
     4.5 Buttons
 --------------------------------------------------------------*/
-
+button {
+    margin: 10px;
+    background-color: dodgerblue;
+    color: white;
+    padding: 10px;
+    border-width: 0;
+    border-radius: 10px;
+    box-shadow: 10px 10px #777;
+}
 /*--------------------------------------------------------------
  ______                                  __       
 /_  __/_ _____  ___  ___ ________ ____  / /  __ __
@@ -195,7 +253,7 @@ p {
 --------------------------------------------------------------*/
 @media only screen and (min-width: 768px) {
 /* Trying to make the menu go horizontal rather than vertical */
-    nav ul {
+    #mainmenu {
         flex-direction: row;
     }
 }
@@ -206,7 +264,7 @@ p {
     header h1 {
         font-size: 5em; /* Sets font so it isn't ginormous on desktop screens */
     }
-    nav ul {
+    #mainmenu {
         width: 50%;  /* Keeps the menu from stretching out too far */
         position: relative;  /* Keeps it in the middle of the screen instead of off to one side */
         left: 25%;
@@ -215,3 +273,4 @@ p {
 /*--------------------------------------------------------------
     7.3 Large desktop > 1200px
 --------------------------------------------------------------*/
+
