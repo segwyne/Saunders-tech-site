@@ -111,7 +111,19 @@ nav {
 /*--------------------------------------------------------------
     3.3 Splash Page
 --------------------------------------------------------------*/
-
+.bottom-center {
+    position: absolute;
+    bottom: 50px;
+    left: calc(50% - 125px);
+    width: 250px;
+    background-color: navy;
+    color: white;
+    font-size: 1.2em;
+    padding: 10px 30px;
+    border-width: 0;
+    border-radius: 10px;
+    box-shadow: 10px 10px #777;
+}
 /*--------------------------------------------------------------
     3.4 Content
 --------------------------------------------------------------*/
@@ -200,12 +212,17 @@ nav {
     color: black;
     }
 
+ul {
+    list-style-position: outside;
+    padding: none;
+    line-height: 2em;
+}
 /*--------------------------------------------------------------
     4.5 Buttons
 --------------------------------------------------------------*/
 button {
     margin: 10px;
-    background-color: dodgerblue;
+    background-color: navy;
     color: white;
     padding: 10px;
     border-width: 0;
@@ -252,9 +269,8 @@ p {
     7.1 Tablets > 768px
 --------------------------------------------------------------*/
 @media only screen and (min-width: 768px) {
-/* Trying to make the menu go horizontal rather than vertical */
     #mainmenu {
-        flex-direction: row;
+        flex-direction: row;        /* Make the menu go horizontal rather than vertical */
     }
 }
 /*--------------------------------------------------------------
@@ -262,11 +278,11 @@ p {
 --------------------------------------------------------------*/
 @media only screen and (min-width: 992px) {
     header h1 {
-        font-size: 5em; /* Sets font so it isn't ginormous on desktop screens */
+        font-size: 5em;            /* Sets font so it isn't ginormous on desktop screens */
     }
     #mainmenu {
-        width: 50%;  /* Keeps the menu from stretching out too far */
-        position: relative;  /* Keeps it in the middle of the screen instead of off to one side */
+        width: 50%;                /* Keeps the menu from stretching out too far */
+        position: relative;        /* Keeps it in the middle of the screen instead of off to one side */
         left: 25%;
     }
 }
