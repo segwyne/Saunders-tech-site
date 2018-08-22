@@ -13,6 +13,8 @@
 </header>
 <!-- Create a responsive menu bar -->
 <nav>
+    <label for="tm" id="toggle-menu">Navigation</label>
+    <input type="checkbox" id="tm">
     <ul class="menu" id="mainmenu">
         <li><a href="index.html">Home</a></li>
         <li><a href="#">Security</a></li>
@@ -22,7 +24,11 @@
     </ul>
 </nav>
 <!-- End responsive menu bar -->
-<div>
+<div id="alt-msg">
+<h2>To view these animations, please switch to a large screen </h2>
+</div>
+
+<div id="animations">
 <button type="button" onclick="rolling()">Make the box roll</button>
 <button type="button" onclick="sliding()">Make the box slide</button>
 <button type="button" onclick="stop()">Stop animations</button>

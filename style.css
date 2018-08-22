@@ -96,13 +96,25 @@ body {
 nav {
     background-color: #333;
 }
+
 /* Uses flexbox to arrange the single-level main menu */
-#mainmenu {
-    display: flex;
+#mainmenu, #tm {
+    display: none;      /* Hides the menu by default */
     flex-direction: column;
     justify-content: center;
 }
-#mainmenu li {
+
+#toggle-menu {
+    display: block;
+    color: white;
+    padding: 10px;
+}
+/* Turns the menu on */
+#tm:checked + #mainmenu {
+    display: flex;
+}
+
+#mainmenu li, #toggle-menu {
     margin: auto;
 }
 #mainmenu li a {
@@ -155,18 +167,22 @@ nav {
 /*--------------------------------------------------------------
     4.2 Animations
 --------------------------------------------------------------*/
-@keyframes rolling {
-    0% {transform: rotate(0deg); left: 100px;}
-    50% {transform: rotate(720deg); left: calc(100% - 250px);}
-    100% {transform: rotate(0deg); left: 100px;}
+#animations {
+    display: none;
 }
+@keyframes rolling {
+    0% {transform: rotate(0deg); left: 25px;}
+    50% {transform: rotate(360deg); left: calc(100% - 125px);}
+    100% {transform: rotate(0deg); left: 25px;}
+}
+
 #box {
-    display: block;
-    width: 100px;
-    height: 100px;
-    font-size: 20px;
-    line-height: 100px;
-    margin-top: 30px;
+    display: none;
+    width: 50px;
+    height: 50px;
+    font-size: 16px;
+    line-height: 50px;
+    margin-top: 15px;
     position: relative;
     background-color: dodgerblue;
     animation-duration: 4s;
@@ -176,11 +192,11 @@ nav {
     animation-name: rolling;
 }
 @keyframes box{
-    0%   {left: 50px; top: 0;}
-    25%  {left: calc(100% - 200px); top: 0;}
-    50%  {left: calc(100% - 200px); top: 500px;}
-    75%  {left: 50px; top: 500px;}
-    100% {left: 50px; top: 0;}
+    0%   {left: 15px; top: 0;}
+    25%  {left: calc(100% - 65px); top: 0;}
+    50%  {left: calc(100% - 65px); top: 150px;}
+    75%  {left: 15px; top: 150px;}
+    100% {left: 15px; top: 0;}
 }
 .box {
     animation-name: box;
@@ -269,10 +285,16 @@ p {
     7.1 Tablets > 768px
 --------------------------------------------------------------*/
 @media only screen and (min-width: 768px) {
+    #toggle-menu {
+        display: none;
+    }
     #mainmenu {
+        display: flex;
         flex-direction: row;        /* Make the menu go horizontal rather than vertical */
     }
+
 }
+
 /*--------------------------------------------------------------
     7.2 Small desktop > 992px
 --------------------------------------------------------------*/
@@ -285,6 +307,39 @@ p {
         position: relative;        /* Keeps it in the middle of the screen instead of off to one side */
         left: 25%;
     }
+    #animations {
+        display: inline;
+    }
+    #alt-msg {
+        display: none;
+    }
+    #box {
+        display: block;
+        left: 50px;
+        width: 100px;
+        height: 100px;
+        font-size: 20px;
+        line-height: 100px;
+        margin-top: 30px;
+    }
+    @keyframes boxlarge{
+        0%   {left: 50px; top: 0;}
+        25%  {left: calc(100% - 150px); top: 0;}
+        50%  {left: calc(100% - 150px); top: 300px;}
+        75%  {left: 50px; top: 300px;}
+        100% {left: 50px; top: 0;}
+    }
+    .box {
+        animation-name: boxlarge;
+    }  
+    .roll {
+        animation-name: rollinglarge;
+    }
+    @keyframes rollinglarge {
+        0% {transform: rotate(0deg); left: 100px;}
+        50% {transform: rotate(720deg); left: calc(100% - 250px);}
+        100% {transform: rotate(0deg); left: 100px;}
+    }  
 }
 /*--------------------------------------------------------------
     7.3 Large desktop > 1200px
