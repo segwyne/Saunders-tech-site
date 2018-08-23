@@ -1,0 +1,48 @@
+<!-- <?php include('header.php') ?> -->
+<!DOCTYPE html>
+<html>
+<head>
+<title>Saunders Technology</title>
+<link href="style.css" rel="stylesheet"> <!-- Local style sheet -->
+<link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet"> <!-- font -->
+</head>
+<body>
+<!-- Top banner -->
+<header>
+<h1>Saunders Technology Services</h1>
+</header>
+<!-- Create a responsive menu bar -->
+<nav>
+    <label for="tm" id="toggle-menu">Navigation</label>
+    <input type="checkbox" id="tm">
+    <ul class="menu" id="mainmenu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Security</a></li>
+        <li><a href="web-design.html">Web Design</a></li>
+        <li><a href="#">Administration</a></li>
+        <li><a href="#">Custom builds</a></li>
+    </ul>
+</nav>
+<!-- End responsive menu bar -->
+
+<h1>RPG Character Generation</h1>
+<p>This page will generate a random dice roll.  It is specifically useful for (among other things) generating character stats for table-top role-playing games, such as Dungeons and Dragons.  More features will be added in the future.</p>
+<p>Number of sides on the die:</p>
+<input type="number" id="diceSize" value="6"></input>
+
+<button onclick="rollDice()">Roll the Die</button>
+<p id="verification"></p>
+<p id="result"></p>
+
+<script>
+function rollDice() {
+    var x = document.getElementById("diceSize").value;
+    var y = Math.floor(Math.random() * x) + 1;
+    document.getElementById("result").innerHTML = y;
+    document.getElementById('verification').innerHTML = "Rolling 1 d"+x;
+}
+</script>
+
+
+</body>
+</html>
