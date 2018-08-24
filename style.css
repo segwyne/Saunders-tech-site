@@ -293,7 +293,10 @@ p {
         display: flex;
         flex-direction: row;        /* Make the menu go horizontal rather than vertical */
     }
-
+    .half {
+        width: 50%;
+        float: left;
+    }
 }
 
 /*--------------------------------------------------------------
