@@ -273,7 +273,70 @@ p {
 
     6.0 Media
 --------------------------------------------------------------*/
+.container {
+    position: relative;
+    width: 100%;
+}
 
+.landscape {
+    max-width: 640px;                   /* Sets orientation for vertical photo */
+    height: auto;                       /* Ditto */
+    position: relative;
+    margin: 10px auto;
+}
+
+.portrait {
+    max-width: 400px;                   /* Sets orientation for vertical photo */
+    height: auto;                       /* Ditto */
+    position: relative;
+    margin: 10px auto;
+}
+
+.my-slides, .my-slides-1,
+.my-slides-2, .my-slides-3 {           /* Targeting the actual photos themselves */
+    display: none;                     /* Sets the images to wait to be shown */
+}
+
+.prev, .next {                          /* Buttons to change the picture in each slideshow */
+    position: absolute;                 /* Anchors them in place */
+    top: 50%;                           /* Sets the buttons half-way down the edge of the photo */
+    margin-top: -20px;                  /* Pulls the button up just a bit to counteract height of itself */
+    padding: 15px;                      /* Gives some space between icon and edge of button */
+    cursor: pointer;                    /* Prevents the cursor from becoming the standard link cursor */
+    color: white;                       /* Self-explanatory */
+    font-size: 2em;                     /* Sets size of icon */
+    font-weight: bold;                  /* Sets thickness of icon */
+    border-radius: 0 15px 15px 0;         /* Rounds the outside corners */
+}
+
+.next {
+    right: 0;                           /* Moves Next button to right side of photo */
+    border-radius: 15px 0 0 15px;         /* Mirrors the rounded corners of the Next button */
+}
+
+.prev:hover, .next:hover {              /* When hovering ... */
+    background-color: rgba(0,0,0,0.75); /* Show a semi-transparent background for the button */
+}
+
+.caption {                              /* Styling the caption text */
+    position: absolute;                 /* Make sure it sits on the photo and not below it */
+    bottom: 5px;                        /* just a few pixels up from the bottom of the photo */
+    padding: 8px 0;                     /* Give some space above and below the caption */
+    width: 100%;                        /* Else the centering is useless and the stripe doesn't happen */
+    text-align: center;                 /* Self-explanatory */
+    font-size: 1.2em;                   /* A little bigger than average */
+    color: white;                       /* White letters ... */
+    background-color: rgba(0,0,0,0.6);  /* on a semi-transparent black stripe ... */
+}
+
+.numbertext {                           /* Styling the counter */
+    font-size: 1.2em;                   /* So they are easily seen */
+    color: white;                       /* white letters ... */
+    background-color: rgba(0,0,0,0.6);  /* on a semi-transparent black background */
+    padding: 8px;                       /* Give some space around the counter */
+    position: absolute;                 /* So it sits on the photo and not above it */
+    top: 0;                             /* Make sure they sit at the top */
+}
 /*--------------------------------------------------------------
    ___                             _         
   / _ \___ ___ ___  ___  ___  ___ (_)  _____ 
@@ -344,6 +407,13 @@ p {
         50% {transform: rotate(720deg); left: calc(100% - 250px);}
         100% {transform: rotate(0deg); left: 100px;}
     }  
+    .container {
+        width: 50%;
+        float: left;
+    }
+    .landscape {
+        margin: 130px auto;
+    }
 }
 /*--------------------------------------------------------------
     7.3 Large desktop > 1200px
