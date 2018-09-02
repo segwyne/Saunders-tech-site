@@ -56,24 +56,36 @@ Tags: Responsive, Mobile first
 /*--------------------------------------------------------------
     2.1 Alignments
 --------------------------------------------------------------*/
+.flexcon {
+  display: flex;
+}
+
+.spacer {
+  height: 100px;
+}
+
+* {
+  box-sizing: border-box;
+}
+ 
 
 /*--------------------------------------------------------------
     2.2 Clearings
 --------------------------------------------------------------*/
 /* Keep images within their elements */
 .clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-	}
+  content: "";
+  clear: both;
+  display: table;
+}
 
 /*--------------------------------------------------------------
     2.3 Global Elements
 --------------------------------------------------------------*/
 body {
-    background-color: #ddd; /* This color will load up first, allowing the wallpaper to load more slowly and not break the site */
-    background-image: url("theme/crumpled.jpg");
-    text-align: center;  /* Sets all text on the site to be centered by default */
+  background-color: #ddd; /* This color will load up first, allowing the wallpaper to load more slowly and not break the site */
+  background-image: url("theme/crumpled.jpg");
+  text-align: center;  /* Sets all text on the site to be centered by default */
 }
 
 /*--------------------------------------------------------------
@@ -94,47 +106,47 @@ body {
 --------------------------------------------------------------*/
 /* Sets backgroud for navigation bar */
 nav {
-    background-color: #333;
+  background-color: #333;
 }
 
 /* Uses flexbox to arrange the single-level main menu */
 #mainmenu, #tm {
-    display: none;      /* Hides the menu by default */
-    flex-direction: column;
-    justify-content: center;
+  display: none;      /* Hides the menu by default */
+  flex-direction: column;
+  justify-content: center;
 }
 
 #toggle-menu {
-    display: block;
-    color: white;
-    padding: 10px;
+  display: block;
+  color: white;
+  padding: 10px;
 }
 /* Turns the menu on */
 #tm:checked + #mainmenu {
-    display: flex;
+  display: flex;
 }
 
 #mainmenu li, #toggle-menu {
-    margin: auto;
+  margin: auto;
 }
 #mainmenu li a {
-    color: white;
+  color: white;
 }
 /*--------------------------------------------------------------
     3.3 Splash Page
 --------------------------------------------------------------*/
 .bottom-center {
-    position: absolute;
-    bottom: 50px;
-    left: calc(50% - 125px);
-    width: 250px;
-    background-color: navy;
-    color: white;
-    font-size: 1.2em;
-    padding: 10px 30px;
-    border-width: 0;
-    border-radius: 10px;
-    box-shadow: 10px 10px #777;
+  position: absolute;
+  bottom: 50px;
+  left: calc(50% - 125px);
+  width: 250px;
+  background-color: navy;
+  color: white;
+  font-size: 1.2em;
+  padding: 10px 30px;
+  border-width: 0;
+  border-radius: 10px;
+  box-shadow: 10px 10px #777;
 }
 /*--------------------------------------------------------------
     3.4 Content
@@ -168,38 +180,38 @@ nav {
     4.2 Animations
 --------------------------------------------------------------*/
 #animations {
-    display: none;
+  display: none;
 }
 @keyframes rolling {
-    0% {transform: rotate(0deg); left: 25px;}
-    50% {transform: rotate(360deg); left: calc(100% - 125px);}
-    100% {transform: rotate(0deg); left: 25px;}
+  0% {transform: rotate(0deg); left: 25px;}
+  50% {transform: rotate(360deg); left: calc(100% - 125px);}
+  100% {transform: rotate(0deg); left: 25px;}
 }
 
 #box {
-    display: none;
-    width: 50px;
-    height: 50px;
-    font-size: 16px;
-    line-height: 50px;
-    margin-top: 15px;
-    position: relative;
-    background-color: dodgerblue;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
+  display: none;
+  width: 50px;
+  height: 50px;
+  font-size: 16px;
+  line-height: 50px;
+  margin-top: 15px;
+  position: relative;
+  background-color: dodgerblue;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
 }
 .roll {
-    animation-name: rolling;
+  animation-name: rolling;
 }
 @keyframes box{
-    0%   {left: 15px; top: 0;}
-    25%  {left: calc(100% - 65px); top: 0;}
-    50%  {left: calc(100% - 65px); top: 150px;}
-    75%  {left: 15px; top: 150px;}
-    100% {left: 15px; top: 0;}
+  0%   {left: 15px; top: 0;}
+  25%  {left: calc(100% - 65px); top: 0;}
+  50%  {left: calc(100% - 65px); top: 150px;}
+  75%  {left: 15px; top: 150px;}
+  100% {left: 15px; top: 0;}
 }
 .box {
-    animation-name: box;
+  animation-name: box;
 }
     
 /*--------------------------------------------------------------
@@ -211,39 +223,39 @@ nav {
 --------------------------------------------------------------*/
 /* Removes bullets from menu lists */
 .menu {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
- 	}
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
 /* Color and style the menu items */
 .menu li {
-    color: white;
-    padding: 10px;
+  color: white;
+  padding: 10px;
 }
 
 /* Removes underlines from menus list items */
 .menu li a{
-    text-decoration: none;
-    color: black;
-    }
+  text-decoration: none;
+  color: black;
+}
 
 ul {
-    list-style-position: outside;
-    padding: none;
-    line-height: 2em;
+  list-style-position: outside;
+  padding: none;
+  line-height: 2em;
 }
 /*--------------------------------------------------------------
     4.5 Buttons
 --------------------------------------------------------------*/
 button {
-    margin: 10px;
-    background-color: navy;
-    color: white;
-    padding: 10px;
-    border-width: 0;
-    border-radius: 10px;
-    box-shadow: 10px 10px #777;
+  margin: 10px;
+  background-color: navy;
+  color: white;
+  padding: 10px;
+  border-width: 0;
+  border-radius: 10px;
+  box-shadow: 10px 10px #777;
 }
 /*--------------------------------------------------------------
  ______                                  __       
@@ -255,16 +267,16 @@ button {
     5.0 Typography
 --------------------------------------------------------------*/
 header h1 {
-    font-family: 'Rubik', sans-serif;
-    color: navy;
-    font-size: 7vw;  /* Sets font size to scale with screen width */
-    margin: 20px; 
+  font-family: 'Rubik', sans-serif;
+  color: navy;
+  font-size: 7vw;  /* Sets font size to scale with screen width */
+  margin: 20px; 
 }
 
 p {
-    font-family: "Times New Roman", serif;
-    font-size: 20px;
-   }
+  font-family: "Times New Roman", serif;
+  font-size: 20px;
+}
 /*--------------------------------------------------------------
    __  ___       ___     
   /  |/  /__ ___/ (_)__ _
@@ -274,68 +286,117 @@ p {
     6.0 Media
 --------------------------------------------------------------*/
 .container {
-    position: relative;
-    width: 100%;
+  position: relative;
+  width: 100%;
+  text-align: left;
 }
 
 .landscape {
-    max-width: 640px;                   /* Sets orientation for vertical photo */
-    height: auto;                       /* Ditto */
-    position: relative;
-    margin: 10px auto;
+  max-width: 640px;                   /* Sets orientation for vertical photo */
+  position: relative;
+  margin: 10px auto;
 }
 
 .portrait {
-    max-width: 400px;                   /* Sets orientation for vertical photo */
-    height: auto;                       /* Ditto */
-    position: relative;
-    margin: 10px auto;
+  max-width: 400px;                   /* Sets orientation for vertical photo */
+  position: relative;
+  margin: auto;
 }
 
 .my-slides, .my-slides-1,
-.my-slides-2, .my-slides-3 {           /* Targeting the actual photos themselves */
-    display: none;                     /* Sets the images to wait to be shown */
+.my-slides-2, .my-slides-3 {         /* Targeting the actual photos themselves */
+  display: none;                     /* Sets the images to wait to be shown */
+  border: 1px solid green;
 }
 
-.prev, .next {                          /* Buttons to change the picture in each slideshow */
-    position: absolute;                 /* Anchors them in place */
-    top: 50%;                           /* Sets the buttons half-way down the edge of the photo */
-    margin-top: -20px;                  /* Pulls the button up just a bit to counteract height of itself */
-    padding: 15px;                      /* Gives some space between icon and edge of button */
-    cursor: pointer;                    /* Prevents the cursor from becoming the standard link cursor */
-    color: white;                       /* Self-explanatory */
-    font-size: 2em;                     /* Sets size of icon */
-    font-weight: bold;                  /* Sets thickness of icon */
-    border-radius: 0 15px 15px 0;         /* Rounds the outside corners */
+.prev, .next {                        /* Buttons to change the picture in each slideshow */
+  position: absolute;                 /* Anchors them in place */
+  top: 50%;                           /* Sets the buttons half-way down the edge of the photo */
+  margin-top: -20px;                  /* Pulls the button up just a bit to counteract height of itself */
+  padding: 15px;                      /* Gives some space between icon and edge of button */
+  cursor: pointer;                    /* Prevents the cursor from becoming the standard link cursor */
+  color: white;                       /* Self-explanatory */
+  font-size: 2em;                     /* Sets size of icon */
+  font-weight: bold;                  /* Sets thickness of icon */
+  border-radius: 0 15px 15px 0;       /* Rounds the outside corners */
 }
 
 .next {
-    right: 0;                           /* Moves Next button to right side of photo */
-    border-radius: 15px 0 0 15px;         /* Mirrors the rounded corners of the Next button */
+  right: 0;                           /* Moves Next button to right side of photo */
+  border-radius: 15px 0 0 15px;       /* Mirrors the rounded corners of the Next button */
 }
 
-.prev:hover, .next:hover {              /* When hovering ... */
-    background-color: rgba(0,0,0,0.75); /* Show a semi-transparent background for the button */
+.prev:hover, .next:hover {            /* When hovering ... */
+  background-color: rgba(0,0,0,0.75); /* Show a semi-transparent background for the button */
 }
 
-.caption {                              /* Styling the caption text */
-    position: absolute;                 /* Make sure it sits on the photo and not below it */
-    bottom: 5px;                        /* just a few pixels up from the bottom of the photo */
-    padding: 8px 0;                     /* Give some space above and below the caption */
-    width: 100%;                        /* Else the centering is useless and the stripe doesn't happen */
-    text-align: center;                 /* Self-explanatory */
-    font-size: 1.2em;                   /* A little bigger than average */
-    color: white;                       /* White letters ... */
-    background-color: rgba(0,0,0,0.6);  /* on a semi-transparent black stripe ... */
+.caption {                            /* Styling the caption text */
+  position: absolute;                 /* Make sure it sits on the photo and not below it */
+  bottom: 5px;                        /* just a few pixels up from the bottom of the photo */
+  padding: 8px 0;                     /* Give some space above and below the caption */
+  width: 100%;                        /* Else the centering is useless and the stripe doesn't happen */
+  text-align: center;                 /* Self-explanatory */
+  font-size: 1.2em;                   /* A little bigger than average */
+  color: white;                       /* White letters ... */
+  background-color: rgba(0,0,0,0.6);  /* on a semi-transparent black stripe ... */
 }
 
-.numbertext {                           /* Styling the counter */
-    font-size: 1.2em;                   /* So they are easily seen */
-    color: white;                       /* white letters ... */
-    background-color: rgba(0,0,0,0.6);  /* on a semi-transparent black background */
-    padding: 8px;                       /* Give some space around the counter */
-    position: absolute;                 /* So it sits on the photo and not above it */
-    top: 0;                             /* Make sure they sit at the top */
+.numbertext {                         /* Styling the counter */
+  font-size: 1.2em;                   /* So they are easily seen */
+  color: white;                       /* white letters ... */
+  background-color: rgba(0,0,0,0.6);  /* on a semi-transparent black background */
+  padding: 8px;                       /* Give some space around the counter */
+  position: absolute;                 /* So it sits on the photo and not above it */
+  top: 0;                             /* Make sure they sit at the top */
+}
+
+.myslides2 {
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+
+.gallery .prev, .gallery .next {      /* Buttons to change the picture in each slideshow */
+  position: absolute;                 /* Anchors them in place */
+  top: 40%;         
+}
+
+/* Creates a fade effect for photos in slideshow and gallery */
+  .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+
+  @-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+
+  @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+
+/* Styles the caption of photos in the gallery */
+#caption {
+  text-align: center;
+  background-color: #222;
+  padding: 12px 16px;
+  color: white;
+  margin: 0;
+}
+/* Fades back the inactive photos */
+.fade1 {
+  opacity: 0.6;
+}
+
+.active,
+.fade1:hover {
+  opacity: 1;
 }
 /*--------------------------------------------------------------
    ___                             _         
@@ -349,71 +410,71 @@ p {
     7.1 Tablets > 768px
 --------------------------------------------------------------*/
 @media only screen and (min-width: 768px) {
-    #toggle-menu {
-        display: none;
-    }
-    #mainmenu {
-        display: flex;
-        flex-direction: row;        /* Make the menu go horizontal rather than vertical */
-    }
-    .half {
-        width: 50%;
-        float: left;
-    }
+  #toggle-menu {
+    display: none;
+  }
+  #mainmenu {
+    display: flex;
+    flex-direction: row;        /* Make the menu go horizontal rather than vertical */
+  }
+  .half {
+    width: 50%;
+    float: left;
+  }
 }
 
 /*--------------------------------------------------------------
     7.2 Small desktop > 992px
 --------------------------------------------------------------*/
 @media only screen and (min-width: 992px) {
-    header h1 {
-        font-size: 5em;            /* Sets font so it isn't ginormous on desktop screens */
-    }
-    #mainmenu {
-        width: 50%;                /* Keeps the menu from stretching out too far */
-        position: relative;        /* Keeps it in the middle of the screen instead of off to one side */
-        left: 25%;
-    }
-    #animations {
-        display: inline;
-    }
-    #alt-msg {
-        display: none;
-    }
-    #box {
-        display: block;
-        left: 50px;
-        width: 100px;
-        height: 100px;
-        font-size: 20px;
-        line-height: 100px;
-        margin-top: 30px;
-    }
-    @keyframes boxlarge{
-        0%   {left: 50px; top: 0;}
-        25%  {left: calc(100% - 150px); top: 0;}
-        50%  {left: calc(100% - 150px); top: 300px;}
-        75%  {left: 50px; top: 300px;}
-        100% {left: 50px; top: 0;}
-    }
-    .box {
-        animation-name: boxlarge;
-    }  
-    .roll {
-        animation-name: rollinglarge;
-    }
-    @keyframes rollinglarge {
-        0% {transform: rotate(0deg); left: 100px;}
-        50% {transform: rotate(720deg); left: calc(100% - 250px);}
-        100% {transform: rotate(0deg); left: 100px;}
-    }  
-    .container {
-        width: 50%;
-        float: left;
-    }
-    .landscape {
-        margin: 130px auto;
-    }
+  header h1 {
+    font-size: 5em;            /* Sets font so it isn't ginormous on desktop screens */
+  }
+  #mainmenu {
+    width: 50%;                /* Keeps the menu from stretching out too far */
+    position: relative;        /* Keeps it in the middle of the screen instead of off to one side */
+    left: 25%;
+  }
+  #animations {
+    display: inline;
+  }
+  #alt-msg {
+    display: none;
+  }
+  #box {
+    display: block;
+    left: 50px;
+    width: 100px;
+    height: 100px;
+    font-size: 20px;
+    line-height: 100px;
+    margin-top: 30px;
+  }
+  @keyframes boxlarge{
+    0%   {left: 50px; top: 0;}
+    25%  {left: calc(100% - 150px); top: 0;}
+    50%  {left: calc(100% - 150px); top: 300px;}
+    75%  {left: 50px; top: 300px;}
+    100% {left: 50px; top: 0;}
+  }
+  .box {
+    animation-name: boxlarge;
+  }  
+ .roll {
+   animation-name: rollinglarge;
+  }
+  @keyframes rollinglarge {
+    0% {transform: rotate(0deg); left: 100px;}
+    50% {transform: rotate(720deg); left: calc(100% - 250px);}
+    100% {transform: rotate(0deg); left: 100px;}
+  }  
+  .container {
+    width: 50%;
+    float: left;
+  }
+  .landscape {
+    margin: 130px auto;
+  }
 }
 /*--------------------------------------------------------------
     7.3 Large desktop > 1200px
