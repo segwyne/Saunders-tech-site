@@ -27,12 +27,9 @@ Tags: Responsive, Mobile first
     4.3 Forms
     4.4 Lists
     4.5 Buttons
+    4.6 Widgets
 5.0 Typography
 6.0 Media
-7.0 Responsive - default = phone < 768px
-    7.1 Tablets > 768px
-    7.2 Small desktop > 992px
-    7.3 Large desktop > 1200px
 */
 
 /*--------------------------------------------------------------
@@ -56,18 +53,19 @@ Tags: Responsive, Mobile first
 /*--------------------------------------------------------------
     2.1 Alignments
 --------------------------------------------------------------*/
-.flexcon {
-  display: flex;
-}
-
-.spacer {
-  height: 100px;
-}
 
 * {
   box-sizing: border-box;
+  margin: 0;
 }
- 
+
+html, body {
+  height: 100%;
+}
+
+.flexcon {
+  display: flex;
+}
 
 /*--------------------------------------------------------------
     2.2 Clearings
@@ -83,11 +81,10 @@ Tags: Responsive, Mobile first
     2.3 Global Elements
 --------------------------------------------------------------*/
 body {
-  background-color: #ddd; /* This color will load up first, allowing the wallpaper to load more slowly and not break the site */
-  background-image: url("theme/crumpled.jpg");
-  text-align: center;  /* Sets all text on the site to be centered by default */
+  background-color: #ddd;
+  background-image: url('theme/crumpled.jpg');
+  text-align: center;
 }
-
 /*--------------------------------------------------------------
    __                       __ 
   / /  ___ ___ _____  __ __/ /_
@@ -99,63 +96,117 @@ body {
 /*--------------------------------------------------------------
     3.1 Header
 --------------------------------------------------------------*/
-
-
-/*--------------------------------------------------------------
-    3.2 Navigation
---------------------------------------------------------------*/
-/* Sets backgroud for navigation bar */
-nav {
-  background-color: #333;
+header h1 {
+  text-align: center;
+  background-color: #eee;
+  color: navy;
+  margin: 0;
+}
+#banner {
+  font-family: Rubik, sans-serif;
+  font-size: 2em;
+  height: 75px;
+  line-height: 75px;
 }
 
-/* Uses flexbox to arrange the single-level main menu */
-#mainmenu, #tm {
-  display: none;      /* Hides the menu by default */
+  /* On larger screens */
+@media only screen and (min-width: 1239px) {
+  #banner {
+    height: 150px;
+    font-size: 5em;
+    font-weight: bold;
+    line-height: 125px;
+  }
+}
+/*--------------------------------------------------------------
+    3.2 Navigation and menus
+--------------------------------------------------------------*/
+nav {
+  background-color: #222;
+  text-align: center;
+  color: white;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+.menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.menu li a {
+  text-decoration: none;
+}
+#main-menu li {
+  padding: 5px;
+  margin: 0 10px;
+}
+#main-menu li a{
+  color: white;
+}
+#main-menu li a:visited {
+  color: white;
+}
+#main-menu, #tm {
+  display: none;    /* Hides menu until turned on */
   flex-direction: column;
   justify-content: center;
 }
-
-#toggle-menu {
-  display: block;
-  color: white;
-  padding: 10px;
-}
-/* Turns the menu on */
-#tm:checked + #mainmenu {
-  display: flex;
+#tm:checked + #main-menu {
+  display: flex;    /* Turns on menu */
 }
 
-#mainmenu li, #toggle-menu {
-  margin: auto;
-}
-#mainmenu li a {
-  color: white;
+  /* On larger screens */
+@media only screen and (min-width: 768px) {
+  nav {
+    height: 40px;
+  }
+  #main-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  #toggle-menu {
+    display: none;
+  }
 }
 /*--------------------------------------------------------------
     3.3 Splash Page
 --------------------------------------------------------------*/
-.bottom-center {
-  position: absolute;
-  bottom: 50px;
-  left: calc(50% - 125px);
-  width: 250px;
-  background-color: navy;
-  color: white;
-  font-size: 1.2em;
-  padding: 10px 30px;
-  border-width: 0;
-  border-radius: 10px;
-  box-shadow: 10px 10px #777;
-}
+
 /*--------------------------------------------------------------
     3.4 Content
 --------------------------------------------------------------*/
+#content {
+  min-height: calc(100% - 40px); /* Footer stays at bottom with short content */
+}
 
+  /* On larger screens */
+@media only screen and (min-width: 768px) {
+  #content {
+    min-height: calc(100% - 60px); /* Footer stays at bottom with short content */
+  }
+  .half {
+   width: 49%;
+   float: left;
+  }
+}
 /*--------------------------------------------------------------
     3.5 Pages
 --------------------------------------------------------------*/
+#animations {
+  display: block;
+}
 
+  /* On larger screens */
+@media only screen and (min-width: 768px) {
+  #animations {
+    display: block;
+  }
+  #alt-msg {
+    display: none;
+  }
+}
 /*--------------------------------------------------------------
     3.6 Sidebars
 --------------------------------------------------------------*/
@@ -163,7 +214,22 @@ nav {
 /*--------------------------------------------------------------
     3.7 Footer
 --------------------------------------------------------------*/
+footer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: #222;
+  color: white;
+  justify-content: center;
+}
 
+  /* For larger screens */
+@media only screen and (min-width: 768px) {
+  footer {
+    flex-direction: row;
+    height: 60px;
+  }
+}
 /*--------------------------------------------------------------
    __  ___        __     __   
   /  |/  /__  ___/ /_ __/ /__ 
@@ -179,41 +245,81 @@ nav {
 /*--------------------------------------------------------------
     4.2 Animations
 --------------------------------------------------------------*/
-#animations {
-  display: none;
+/* Define a space to contain the animations */
+#box-path {
+  height: 450px;
+  width: 350px;
+  margin: auto;
 }
-@keyframes rolling {
-  0% {transform: rotate(0deg); left: 25px;}
-  50% {transform: rotate(360deg); left: calc(100% - 125px);}
-  100% {transform: rotate(0deg); left: 25px;}
-}
-
 #box {
-  display: none;
+  display: block;
+  left: 25px;
   width: 50px;
   height: 50px;
   font-size: 16px;
-  line-height: 50px;
-  margin-top: 15px;
+  line-height: 50px;    /* Centers the text in the box */
+  margin-top: 15px;     /* Box won't roll through the control buttons */
   position: relative;
   background-color: dodgerblue;
   animation-duration: 4s;
+  transition-timing-function: linear;
   animation-iteration-count: infinite;
 }
+
+@keyframes rolling {
+  0% {transform: rotate(0deg); left: 25px;}
+  50% {transform: rotate(360deg); left: 300px;}
+  100% {transform: rotate(0deg); left: 25px;}
+}
+
 .roll {
   animation-name: rolling;
 }
-@keyframes box{
-  0%   {left: 15px; top: 0;}
-  25%  {left: calc(100% - 65px); top: 0;}
-  50%  {left: calc(100% - 65px); top: 150px;}
-  75%  {left: 15px; top: 150px;}
-  100% {left: 15px; top: 0;}
+@keyframes box {
+  0%   {left: 25px; top: 0;}
+  25%  {left: 300px; top: 0;}
+  50%  {left: 300px; top: 300px;}
+  75%  {left: 25px; top: 300px;}
+  100% {left: 25px; top: 0;}
 }
 .box {
   animation-name: box;
 }
-    
+
+@keyframes fade {
+  0%   {opacity: 0.5;}
+  100% {opacity: 1.0;}
+}
+
+  /* On larger screens */
+@media only screen and (min-width: 992px) {
+  #box-path {
+    height: 500px;
+    width: 900px;
+    margin: auto;
+  }
+  #box {
+    display: block;
+    height: 100px;
+    width: 100px;
+    left: 0;
+    font-size: 20px;
+    line-height: 100px;   /* Centers the text inside the box */
+    margin-top: 30px;     /* Box won't roll through the control buttons */
+  }
+  @keyframes rolling{
+    0%   {transform: rotate(0deg); left: 0;}
+    50%  {transform: rotate(720deg); left: 800px;}
+    100% {transform: rotate(0deg); left: 0;}
+  }
+  @keyframes box{
+    0%   {left: 0; top: 0;}
+    33%  {left: 800px; top: 0;}
+    50%  {left: 800px; top: 350px;}
+    83%  {left: 0; top: 350px;}
+    100% {left: 0; top: 0;}
+  }
+}
 /*--------------------------------------------------------------
     4.3 Forms
 --------------------------------------------------------------*/
@@ -221,42 +327,29 @@ nav {
 /*--------------------------------------------------------------
     4.4 Lists
 --------------------------------------------------------------*/
-/* Removes bullets from menu lists */
-.menu {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-/* Color and style the menu items */
-.menu li {
-  color: white;
-  padding: 10px;
-}
-
-/* Removes underlines from menus list items */
-.menu li a{
-  text-decoration: none;
-  color: black;
-}
-
-ul {
-  list-style-position: outside;
-  padding: none;
-  line-height: 2em;
+ul li {
+  margin: 1em;
 }
 /*--------------------------------------------------------------
     4.5 Buttons
 --------------------------------------------------------------*/
-button {
-  margin: 10px;
-  background-color: navy;
+button, .button {
+  background-color: blue;
   color: white;
-  padding: 10px;
-  border-width: 0;
-  border-radius: 10px;
-  box-shadow: 10px 10px #777;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 10px 10px darkgray;
 }
+/*--------------------------------------------------------------
+    4.6 Widgets
+--------------------------------------------------------------*/
+#widget-date {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;        /* Centers horizontally */
+  transform: translateX(-50%);  /* adjusts for width of widget */
+}
+
 /*--------------------------------------------------------------
  ______                                  __       
 /_  __/_ _____  ___  ___ ________ ____  / /  __ __
@@ -266,16 +359,11 @@ button {
 
     5.0 Typography
 --------------------------------------------------------------*/
-header h1 {
-  font-family: 'Rubik', sans-serif;
-  color: navy;
-  font-size: 7vw;  /* Sets font size to scale with screen width */
-  margin: 20px; 
-}
-
 p {
-  font-family: "Times New Roman", serif;
-  font-size: 20px;
+  margin: 10px;
+}
+h1 {
+  margin: 1em;
 }
 /*--------------------------------------------------------------
    __  ___       ___     
@@ -286,117 +374,79 @@ p {
     6.0 Media
 --------------------------------------------------------------*/
 .container {
+  width: 100%
   position: relative;
-  width: 100%;
   text-align: left;
+  border: 1px solid blue;
 }
-
-.landscape {
-  max-width: 640px;                   /* Sets orientation for vertical photo */
-  position: relative;
-  margin: 10px auto;
+@media only screen and (min-width: 1200px) {
+  .container {
+    width: 49%;
+  }
 }
-
 .portrait {
-  max-width: 400px;                   /* Sets orientation for vertical photo */
+  max-width: 400px;
   position: relative;
-  margin: auto;
-}
-
-.my-slides, .my-slides-1,
-.my-slides-2, .my-slides-3 {         /* Targeting the actual photos themselves */
-  display: none;                     /* Sets the images to wait to be shown */
+  margin: 0 auto;
   border: 1px solid green;
 }
-
-.prev, .next {                        /* Buttons to change the picture in each slideshow */
-  position: absolute;                 /* Anchors them in place */
-  top: 50%;                           /* Sets the buttons half-way down the edge of the photo */
-  margin-top: -20px;                  /* Pulls the button up just a bit to counteract height of itself */
-  padding: 15px;                      /* Gives some space between icon and edge of button */
-  cursor: pointer;                    /* Prevents the cursor from becoming the standard link cursor */
-  color: white;                       /* Self-explanatory */
-  font-size: 2em;                     /* Sets size of icon */
-  font-weight: bold;                  /* Sets thickness of icon */
-  border-radius: 0 15px 15px 0;       /* Rounds the outside corners */
+.landscape {
+  position: relative;
+  max-width: 640px;
+  margin: 0 auto;
 }
+.my-slides, .my-slides-1, .my-slides-2, .my-slides-3 {
 
-.next {
-  right: 0;                           /* Moves Next button to right side of photo */
-  border-radius: 15px 0 0 15px;       /* Mirrors the rounded corners of the Next button */
 }
-
-.prev:hover, .next:hover {            /* When hovering ... */
-  background-color: rgba(0,0,0,0.75); /* Show a semi-transparent background for the button */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
 }
-
-.caption {                            /* Styling the caption text */
-  position: absolute;                 /* Make sure it sits on the photo and not below it */
-  bottom: 5px;                        /* just a few pixels up from the bottom of the photo */
-  padding: 8px 0;                     /* Give some space above and below the caption */
-  width: 100%;                        /* Else the centering is useless and the stripe doesn't happen */
-  text-align: center;                 /* Self-explanatory */
-  font-size: 1.2em;                   /* A little bigger than average */
-  color: white;                       /* White letters ... */
-  background-color: rgba(0,0,0,0.6);  /* on a semi-transparent black stripe ... */
-}
-
-.numbertext {                         /* Styling the counter */
-  font-size: 1.2em;                   /* So they are easily seen */
-  color: white;                       /* white letters ... */
-  background-color: rgba(0,0,0,0.6);  /* on a semi-transparent black background */
-  padding: 8px;                       /* Give some space around the counter */
-  position: absolute;                 /* So it sits on the photo and not above it */
-  top: 0;                             /* Make sure they sit at the top */
-}
-
-.myslides2 {
-  flex-direction: row;
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
-}
-
-
-.gallery .prev, .gallery .next {      /* Buttons to change the picture in each slideshow */
-  position: absolute;                 /* Anchors them in place */
-  top: 40%;         
-}
-
-/* Creates a fade effect for photos in slideshow and gallery */
-  .fade {
-    -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.5s;
-    animation-name: fade;
-    animation-duration: 1.5s;
-  }
-
-  @-webkit-keyframes fade {
-    from {opacity: .4}
-    to {opacity: 1}
-  }
-
-  @keyframes fade {
-    from {opacity: .4}
-    to {opacity: 1}
-  }
-
-/* Styles the caption of photos in the gallery */
-#caption {
-  text-align: center;
-  background-color: #222;
-  padding: 12px 16px;
+.numbertext {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  background-color: rgba(0,0,0,0.8);
   color: white;
+  font-size: 1.2em;
+  padding: 5px;
+}
+.prev, .next {
+  position: absolute;
+  text-align: left;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  cursor: pointer;
+  font-size: 3em;
+  padding: 15px;
+  border-radius: 0 15px 15px 0;
+}
+.next {
+  right: 0;
+  border-radius: 15px 0 0 15px;
+}
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.7);
+}
+  img {
+    border: 1px solid orange;
+    }
+.caption, #caption {
+  color: white;
+  text-align: center;
+  padding: 5px;
+  width: 100%;
   margin: 0;
 }
-/* Fades back the inactive photos */
-.fade1 {
-  opacity: 0.6;
+.caption {
+  background-color: rgba(0,0,0,0.7);
+  bottom: 20px;
+  position: absolute;
 }
-
-.active,
-.fade1:hover {
-  opacity: 1;
+#caption {
+  background-color: black;
 }
 /*--------------------------------------------------------------
    ___                             _         
@@ -409,73 +459,11 @@ p {
 /*--------------------------------------------------------------
     7.1 Tablets > 768px
 --------------------------------------------------------------*/
-@media only screen and (min-width: 768px) {
-  #toggle-menu {
-    display: none;
-  }
-  #mainmenu {
-    display: flex;
-    flex-direction: row;        /* Make the menu go horizontal rather than vertical */
-  }
-  .half {
-    width: 50%;
-    float: left;
-  }
-}
 
 /*--------------------------------------------------------------
     7.2 Small desktop > 992px
 --------------------------------------------------------------*/
-@media only screen and (min-width: 992px) {
-  header h1 {
-    font-size: 5em;            /* Sets font so it isn't ginormous on desktop screens */
-  }
-  #mainmenu {
-    width: 50%;                /* Keeps the menu from stretching out too far */
-    position: relative;        /* Keeps it in the middle of the screen instead of off to one side */
-    left: 25%;
-  }
-  #animations {
-    display: inline;
-  }
-  #alt-msg {
-    display: none;
-  }
-  #box {
-    display: block;
-    left: 50px;
-    width: 100px;
-    height: 100px;
-    font-size: 20px;
-    line-height: 100px;
-    margin-top: 30px;
-  }
-  @keyframes boxlarge{
-    0%   {left: 50px; top: 0;}
-    25%  {left: calc(100% - 150px); top: 0;}
-    50%  {left: calc(100% - 150px); top: 300px;}
-    75%  {left: 50px; top: 300px;}
-    100% {left: 50px; top: 0;}
-  }
-  .box {
-    animation-name: boxlarge;
-  }  
- .roll {
-   animation-name: rollinglarge;
-  }
-  @keyframes rollinglarge {
-    0% {transform: rotate(0deg); left: 100px;}
-    50% {transform: rotate(720deg); left: calc(100% - 250px);}
-    100% {transform: rotate(0deg); left: 100px;}
-  }  
-  .container {
-    width: 50%;
-    float: left;
-  }
-  .landscape {
-    margin: 130px auto;
-  }
-}
+
 /*--------------------------------------------------------------
     7.3 Large desktop > 1200px
 --------------------------------------------------------------*/

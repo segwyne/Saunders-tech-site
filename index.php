@@ -11,13 +11,11 @@
 <div>
 <h2>Services we offer include:</h2>
 <ul>
-    <li>Small network security</li>
     <li>Website design</li>
-    <li>Small network administration</li>
     <li>Custom computer building</li> 
 </ul>
 </div>
-<div class="bottom-center">
+<div id="widget-date" class="button">
 <p id="date"></p>
 </div>
 <script>

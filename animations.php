@@ -1,7 +1,7 @@
 <?php include('header.php') ?>
 
 <div id="alt-msg">
-<h2>To view these animations, please switch to a large screen </h2>
+<h2>To best view these animations, please switch to a larger screen.</h2>
 </div>
 
 <div id="animations">
@@ -10,9 +10,11 @@
 <button type="button" onclick="stop()">Stop animations</button>
 </div>
 
+<div id="box-path">
 <div id="box" class="">
 Box
 </div> <!-- box -->
+</div> <!-- boxpath -->
 
 
 <?php include('footer.php') ?>

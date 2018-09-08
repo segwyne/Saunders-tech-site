@@ -7,18 +7,24 @@
   <script src="myScript.js"></script> <!-- External javascript file -->
 </head>
 <body>
+<div id="content">
 <!-- Top banner -->
 <header>
-  <h1>Saunders Technology Services</h1>
+  <h1 id="banner">Saunders Technology Services</h1>
 </header>
+
 <!-- Create a responsive menu bar -->
 <nav>
-    <ul class="menu" id="mainmenu">
+  <label for="tm" id="toggle-menu">Navigation</label>
+  <input id="tm" type="checkbox" />
+    <ul class="menu" id="main-menu">
         <li><a href="index.php">Home</a></li>
-        <li><a href="#">Security</a></li>
+<!--         <li><a href="#">Security</a></li>  -->
         <li><a href="web-design.php">Web Design</a></li>
-        <li><a href="#">Administration</a></li>
-        <li><a href="#">Custom builds</a></li>
+<!--        <li><a href="#">Administration</a></li>
+        <li><a href="#">Custom builds</a></li>  -->
     </ul>
 </nav>
-<!-- End responsive menu bar -->
+
+<!-- Begin page content -->
+
