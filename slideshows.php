@@ -1,8 +1,16 @@
 <?php include('header.php') ?> 
 
 <h1>Slideshows</h1>
-<p>Here are some gratuitous photos of fall in my town.</p>
 
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <span class="close">&times</span>
+    <h2>To see this content better, please view on a larger screen.</h2>
+  </div> <!-- modal-content -->
+</div> <!-- modal1 -->
+
+<p>Here are some gratuitous photos of fall in my town.</p>
+<div class="grid">
 <!-- First slideshow -->
 <div class="container"> 
   <div class="portrait">
@@ -95,8 +103,8 @@
       <img src="slideshow/fall-intersection-1-tn.jpg" alt="" />
       <div class="caption">An intersection</div>
     </div>
-    <a class="prev" onclick="plusDivs(-1, 0)">&#10094;</a>
-    <a class="next" onclick="plusDivs(1, 0)">&#10095;</a>
+    <a class="prev" onclick="plusDivs(-1, 1)">&#10094;</a>
+    <a class="next" onclick="plusDivs(1, 1)">&#10095;</a>
   </div>  <!-- landscape -->
 </div> <!--container-->
 
@@ -125,27 +133,42 @@
     </div>
     <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
     <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
-    
+  </div>  <!-- portrait -->
     <p id="caption"></p>
-    
-    <div class="flexcon myslides3">
+      <div class="flexcon thumbnails">
       <img class="fade1" src="slideshow/fall-village-2-tn.jpg" onclick="currentSlide(1)" alt="Lone Tree">
       <img class="fade1" src="slideshow/apples-1-tn.jpg" onclick="currentSlide(2)" alt="Apples">
       <img class="fade1" src="slideshow/fall-maple-2-tn.jpg" onclick="currentSlide(3)" alt="Maple on the roadside">
       <img class="fade1" src="slideshow/apples-2-tn.jpg" onclick="currentSlide(4)" alt="Child picking apples">
       <img class="fade1" src="slideshow/fall-field-1-tn.jpg" onclick="currentSlide(5)" alt="Across a field">
-  </div>  <!--flexcon myslides2 -->
-  </div>  <!-- portrait -->
+  </div>  <!--flexcon thumbnails -->
+
 </div>  <!-- container -->
+</div> <!-- grid -->
+
 <script>
+//  modal
+var modal = document.getElementById('modal1');
+var span = document.getElementsByClassName("close")[0];
+span.onclick = function() {
+  modal.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
 // manual 
-var slideIndex = [1,1];
+var slideIndex = [1, 1];
 var slideId = ["my-slides", "my-slides-2"]
 showDivs(1, 0);
 showDivs(1, 1);
+
 // automatic
 var slideIndex1 = 0;
 showSlides();
+
 // gallery
 var slideIndex2 = 1;
 showSlides1(slideIndex2);

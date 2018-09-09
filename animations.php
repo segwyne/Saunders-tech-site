@@ -1,8 +1,11 @@
 <?php include('header.php') ?>
 
-<div id="alt-msg">
-<h2>To best view these animations, please switch to a larger screen.</h2>
-</div>
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <span class="close">&times</span>
+    <h2>To see this content better, please view on a larger screen.</h2>
+  </div> <!-- modal-content -->
+</div> <!-- modal1 -->
 
 <div id="animations">
 <button type="button" onclick="rolling()">Make the box roll</button>
@@ -16,6 +19,18 @@ Box
 </div> <!-- box -->
 </div> <!-- boxpath -->
 
-
+<script>
+//  modal
+var modal = document.getElementById('modal1');
+var span = document.getElementsByClassName("close")[0];
+span.onclick = function() {
+  modal.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
 <?php include('footer.php') ?>
 

@@ -1,3 +1,15 @@
+//    Modals
+var modal = document.getElementById('modal1');
+var span = document.getElementsByClassName("close")[0];
+span.onclick = function() {
+  modal.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
 //    Dice rolling page 
 function rollDice() {
   var size = document.getElementById("diceSize").value;
@@ -72,7 +84,7 @@ function currentSlide(n) {
 
 function showSlides1(n) {
   var i;
-  var slides = document.getElementsByClassName("my-slides-2");
+  var slides = document.getElementsByClassName("my-slides-3");
   var dots = document.getElementsByClassName("fade1");
   var captionText = document.getElementById("caption");
   if (n > slides.length) {slideIndex2 = 1}
