@@ -325,6 +325,41 @@ footer {
     4.3 Forms
 --------------------------------------------------------------*/
 
+/*  Contact page  */
+#contact {
+  padding: 10px;
+  text-align: left;
+}
+input {
+  width: 100%;
+}
+#message {
+  height: 100px;
+  width: 100%;
+}
+.error {
+  color: red;
+}
+#send {
+  background-color: blue;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 5px 5px #666;
+}
+
+/* For larger screens */
+@media only screen and (min-width: 768px) {
+  #contact, input, textarea {
+    width: 500px;
+    margin: auto;
+  }
+  #send {
+    width: 30%;
+    margin-left: 35%;
+  }
+}
+   
 /*--------------------------------------------------------------
     4.4 Lists
 --------------------------------------------------------------*/
@@ -423,6 +458,7 @@ blockquote {
   font-size: 16px;
   font-style: italic;
   text-align: left;
+  line-height: 1.5em;
 }
 .attribution {
   text-align: right;
@@ -430,26 +466,34 @@ blockquote {
 .attribution:before {
   content: "~ ";
 }
-
-blockquote:before, blockquote:after {
+.quote:before, .attribution:after {
   display: inline;
   margin: 0;
   content: open-quote;
   font-size: 50px;
-  color: black;
+  color: white;
 }
-blockquote:before {
+.quote:before {
   position: relative;
-  top: 1em;
+  top: 20px;
   left: -20px;
 }
-blockquote:after {
+.attribution:after {
+  display: block;
   content: close-quote;
   text-align: right;
   position: relative;
-
 }
-
+ /* For larger screens */
+@media only screen and (min-width:992px) {
+  .attribution:after {
+    display: inline;
+  }
+  blockquote {
+    margin: 20px 500px;
+    padding: 50px;
+  }
+}
 /*--------------------------------------------------------------
    __  ___       ___     
   /  |/  /__ ___/ (_)__ _

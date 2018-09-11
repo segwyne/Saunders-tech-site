@@ -1,12 +1,8 @@
 <?php include('header.php') ?>
 
 <div>
-<p>We have been busy building other sites and haven't had much time to build our own here.</p>
-<p>You can reach us at 
-<script>
-    document.write("<a href=\"mail" + "to:" + new Array("btechie","gmail.com").join("@") + "\">" + new Array("btechie","gmail.com").join("@") + "</" + "a>")  // This is Ben's addition to prevent email address harvesting 
-</script>
-</p>
+<h1>Welcome to Saunders Technology.</h1>
+
 </div>
 <div>
 <h2>Services we offer include:</h2>

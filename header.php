@@ -19,10 +19,10 @@
   <input id="tm" type="checkbox" />
     <ul class="menu" id="main-menu">
         <li><a href="index.php">Home</a></li>
-<!--         <li><a href="#">Security</a></li>  -->
+        <li><a href="about.php">About Us</a></li>
         <li><a href="web-design.php">Web Design</a></li>
         <li><a href="testimonials.php">Testimonials</a></li>
-<!--        <li><a href="#">Custom builds</a></li>  -->
+        <li><a href="contact.php">Contact Us</a></li>  
     </ul>
 </nav>
 
