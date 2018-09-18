@@ -61,12 +61,20 @@ Tags: Responsive, Mobile first
 
 html, body {
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .flexcon {
   display: flex;
 }
-
+#wrapper {
+  min-height: 100%; /* Footer stays at bottom with short content */
+	position: relative;
+}
+.align-left {
+	text-align: left;
+}
 /*--------------------------------------------------------------
     2.2 Clearings
 --------------------------------------------------------------*/
@@ -101,13 +109,12 @@ header h1 {
   background-color: #eee;
   color: navy;
   margin: 0;
-  padding: 0;
+  padding: 10px;
 }
 #banner {
-  font-family: Rubik, sans-serif;
+  font-family: Cinzel, sans-serif;
   font-size: 2em;
-  height: 75px;
-
+  text-shadow: 5px 5px #aaa;
 }
 
   /* On larger screens */
@@ -175,26 +182,37 @@ nav {
     3.3 Splash Page
 --------------------------------------------------------------*/
 
+@media only screen and (min-width:992px) {
+	.splash {
+		margin: 0 100px;
+	}
+}
+
 /*--------------------------------------------------------------
     3.4 Content
 --------------------------------------------------------------*/
 #content {
-  min-height: calc(100% - 40px); /* Footer stays at bottom with short content */
+	padding-bottom: 3em;
 }
 
   /* On larger screens */
 @media only screen and (min-width: 768px) {
-  #content {
-    min-height: calc(100% - 60px); /* Footer stays at bottom with short content */
-  }
   .half {
-   width: 49%;
+   width: 50%;
    float: left;
   }
 }
 /*--------------------------------------------------------------
     3.5 Pages
 --------------------------------------------------------------*/
+
+@media only screen and (min-width: 992px) {
+	.page {
+		width: 60%;
+		margin: auto;
+	}
+}
+
 #animations {
   display: block;
 }
@@ -218,17 +236,21 @@ nav {
 footer {
   display: flex;
   flex-direction: column;
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  height: 2em;
+  width: 100%;
   background-color: #222;
   color: white;
   justify-content: center;
+  margin-top: 0.5em;
 }
 
   /* For larger screens */
 @media only screen and (min-width: 768px) {
   footer {
     flex-direction: row;
-    height: 60px;
+
   }
 }
 /*--------------------------------------------------------------
@@ -340,12 +362,9 @@ input {
 .error {
   color: red;
 }
-#send {
-  background-color: blue;
-  color: white;
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 5px 5px #666;
+textarea {
+	height: 100px;
+	width: 100%;
 }
 
 /* For larger screens */
@@ -353,6 +372,9 @@ input {
   #contact, input, textarea {
     width: 500px;
     margin: auto;
+  }
+  textarea {
+  	height: 200px;
   }
   #send {
     width: 30%;
@@ -370,7 +392,7 @@ ul li {
     4.5 Buttons
 --------------------------------------------------------------*/
 button, .button {
-  background-color: blue;
+  background-color: navy;
   color: white;
   padding: 10px;
   border-radius: 10px;
@@ -446,6 +468,7 @@ button, .button {
 --------------------------------------------------------------*/
 p {
   margin: 10px;
+
 }
 h1 {
   margin: 1em;
@@ -524,7 +547,7 @@ blockquote {
   max-height: 400px;
   margin: 0 auto;
 }
-img {
+.grid img {
   height:100%;
 }
 .my-slides-2 {
@@ -595,6 +618,18 @@ img {
 .thumbnails img:hover {
   opacity: 1.0;
 }
+
+.splash img {
+	width: 100%;
+	max-width: 700px;
+	height: auto;
+}
+.page img {
+	max-width: 320px;
+	float: left;
+	margin: 0 20px 10px 0;
+}
+
 @media only screen and (min-width: 1200px) {
   .container {
     width: 50%;
@@ -603,6 +638,7 @@ img {
   .gallery {
     margin: -230px auto 10px;
   }
+  
 }
 
 /*--------------------------------------------------------------
